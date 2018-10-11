@@ -10,13 +10,13 @@ class DoGroup extends Component {
                     ng-disabled="editor.history.hasUndo() == false"
                     ng-click="editor.history.hasUndo() == false || editor.history.undo();"
                     title="撤销 (Ctrl + Z)" disabled="disabled">
-                        <Icon type="undo" theme="outlined" />
+                        <Icon type="left-circle" theme="twoTone" />
                 </div>
                 <div className="km-btn-item redo"
                     ng-disabled="editor.history.hasRedo() == false"
                     ng-click="editor.history.hasRedo() == false || editor.history.redo()"
                     title="重做 (Ctrl + Y)" disabled="disabled">
-                        <Icon type="redo" theme="outlined" />
+                        <Icon type="right-circle" theme="twoTone" />
                 </div>
             </Col>
         );

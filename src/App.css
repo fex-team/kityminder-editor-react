@@ -8,3 +8,9 @@
 .km-btn-item {
   text-align: center;
 }
+.km-btn-item[disabled] {
+  opacity: .5;
+}
+.km-btn-item:hover {
+  background-color: #eff3fa;
+}
