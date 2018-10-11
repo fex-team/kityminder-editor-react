@@ -7,18 +7,31 @@ import 'antd/dist/antd.css';
 import DoGroup from './toolbar/DoGroup';
 import Nodes from './toolbar/Nodes';
 
-
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      minder: null
+    };
+    setTimeout(()=>{
+      if (this.minder) {
+        this.setState({
+          minder: this.minder
+        });
+      } else {
+        setTimeout(arguments.callee, 10);
+      }
+    }, 10);
+  }
   render() {
     const TabPane = Tabs.TabPane;
-    let minder;
     return (
       <div className="kityminder-editor-container">
         <Tabs defaultActiveKey="1">
           <TabPane tab="思路" key="1">
             <Row>
               <DoGroup></DoGroup>
-              <Nodes></Nodes>
+              <Nodes minder={this.state.minder}></Nodes>
             </Row>
           </TabPane>
           <TabPane tab="外观" key="2">Content of Tab Pane 2</TabPane>
@@ -26,10 +39,10 @@ class App extends Component {
         </Tabs>
         <div className="kityminder-core-container" 
           ref={(input) => {
-            minder = new window.kityminder.Minder({
+            this.minder = new window.kityminder.Minder({
               renderTo: input
             });
-            minder.importJson({
+            this.minder.importJson({
               "root": {
                   "data": {
                       "text": "百度产品",
