@@ -1,0 +1,6 @@
+.km-btn-item.undo::after {
+    content: "撤销"
+}
+.km-btn-item.redo::after {
+    content: "重做"
+}

@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import 'kity';
 import 'kityminder-core';
-import {Tabs} from 'antd';
+import {Tabs, Row} from 'antd';
 import 'antd/dist/antd.css';
+import DoGroup from './toolbar/DoGroup';
 
 class App extends Component {
   render() {
@@ -16,11 +17,16 @@ class App extends Component {
     return (
       <div className="kityminder-editor-container">
         <Tabs defaultActiveKey="1" onChange={callback}>
-          <TabPane tab="思路" key="1">Content of Tab Pane 1</TabPane>
+          <TabPane tab="思路" key="1">
+            <Row>
+              <DoGroup></DoGroup>
+            </Row>
+          </TabPane>
           <TabPane tab="外观" key="2">Content of Tab Pane 2</TabPane>
           <TabPane tab="视图" key="3">Content of Tab Pane 3</TabPane>
         </Tabs>
-        <div className="kityminder-core-container" ref={(input) => {
+        <div className="kityminder-core-container" 
+        ref={(input) => {
           minder = new window.kityminder.Minder({
             renderTo: input
           });
@@ -44,7 +50,7 @@ class App extends Component {
                     { "data": { "text": "更多", "hyperlink": "http://www.baidu.com/more" } }
                 ]
             }
-        });
+          });
         }}></div>
       </div>
     );
